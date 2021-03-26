@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemMonitorServer.src.window
@@ -21,7 +14,7 @@ namespace SystemMonitorServer.src.window
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                FastClose();
+                CloseApplication(e);
             } 
         }
 
@@ -31,7 +24,7 @@ namespace SystemMonitorServer.src.window
             {
                 Hide();
                 notifyIcon.Visible = true;
-                notifyIcon.ShowBalloonTip(1500);
+                notifyIcon.ShowBalloonTip(500);
             }
         }
 
@@ -44,12 +37,36 @@ namespace SystemMonitorServer.src.window
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FastClose();
+            CloseApplication();
         }
 
-        private void FastClose()
+        private void CloseApplication()
         {
-            Application.Exit();
+            if (CloseConfirmation())
+            {
+                Application.Exit();
+            }
         }
+
+        private void CloseApplication(FormClosingEventArgs e)
+        {
+            if (CloseConfirmation())
+            {
+                Application.Exit();
+            } else
+            {
+                e.Cancel = true;
+            }
+            
+        }
+
+        public bool CloseConfirmation()
+        {
+            const string message = "Are you sure you want to close Insane Hardware Monitor?";
+            const string caption = "Insane Hardware Monitor";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result == DialogResult.Yes;
+        }
+
     }
 }
