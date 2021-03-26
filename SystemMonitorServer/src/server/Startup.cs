@@ -1,7 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using System;
-using System.Threading.Tasks;
 using System.Web.Http;
 using SystemMonitorServer.src.server.config;
 
