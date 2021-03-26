@@ -1,6 +1,6 @@
 ﻿using Microsoft.Owin.Hosting;
-using System;
 using SystemMonitorServer.src.server.config;
+using SystemMonitorServer.src.window;
 
 namespace SystemMonitorServer.src.server
 {
@@ -11,8 +11,7 @@ namespace SystemMonitorServer.src.server
         {
             using (WebApp.Start<Startup>(url : UrlConfiguration.GetUrl()))
             {
-                Console.WriteLine("Server started");
-                Console.ReadLine();
+                WindowStarter.Start();
             }
         }
 
