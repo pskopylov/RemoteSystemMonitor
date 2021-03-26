@@ -9,13 +9,17 @@ namespace SystemMonitorServer.src.builder
 
         public MotherBoardInfo Build(IHardware motherBoard)
         {
-            var chip = motherBoard.SubHardware[0];
-            var sensors = new MotherBoardSensors(chip.Sensors);
-            return new MotherBoardInfo()
+            if (motherBoard.SubHardware.Length > 0)
             {
-                Name = motherBoard.Name,
-                FanInfos = sensors.FanInfos
-            };
+                var chip = motherBoard.SubHardware[0];
+                var sensors = new MotherBoardSensors(chip.Sensors);
+                return new MotherBoardInfo()
+                {
+                    Name = motherBoard.Name,
+                    FanInfos = sensors.FanInfos
+                };
+            }
+            return null;
         }
 
     }

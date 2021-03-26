@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using OpenHardwareMonitor.Hardware;
+using System;
+using System.Collections.Generic;
 using SystemMonitorServer.src.model;
 
 namespace SystemMonitorServer.src.builder
@@ -10,12 +12,18 @@ namespace SystemMonitorServer.src.builder
         {
             return new SystemInfo()
             {
+                Name = GetName(),
                 MotherBoard = motherBoard,
                 Cpu = cpu,
                 Gpu = gpu,
                 Ram = ram,
                 DriveDisks = driveDisks
             };
+        }
+
+        private string GetName()
+        {
+            return Environment.MachineName;
         }
 
     }
