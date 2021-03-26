@@ -26,7 +26,7 @@ namespace InsaneHardwareMonitor.src.service
         public RamInfo GetRamInfo()
         {
             var ram = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.RAM);
-            return builder.Build(ram);
+            return ram != null ? builder.Build(ram) : null;
         } 
 
     }

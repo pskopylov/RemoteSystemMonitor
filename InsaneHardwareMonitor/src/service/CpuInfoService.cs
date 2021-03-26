@@ -25,13 +25,13 @@ namespace InsaneHardwareMonitor.src.service
         public CpuInfo GetCpuInfo()
         {
             var cpu = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.CPU);
-            return builder.Build(cpu);
+            return cpu != null ? builder.Build(cpu) : null;
         }
 
         public CpuInfo GetCpuSesnorsInfo()
         {
             var cpu = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.CPU);
-            return builder.BuildOnlySensors(cpu);
+            return cpu != null ? builder.BuildOnlySensors(cpu) : null;
         }
 
     }

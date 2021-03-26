@@ -27,7 +27,7 @@ namespace InsaneHardwareMonitor.src.service
         public GpuInfo GetGpuInfo()
         {
             var gpu = GetGpu(computer.Hardware);
-            return builder.Build(gpu);
+            return gpu != null ? builder.Build(gpu) : null;
         }
 
         private IHardware GetGpu(IHardware[] hardwares)

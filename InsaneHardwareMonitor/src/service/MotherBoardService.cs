@@ -26,7 +26,7 @@ namespace InsaneHardwareMonitor.src.service
         public MotherBoardInfo GetMotherBoardInfo()
         {
             var motherBoard = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.Mainboard);
-            return builder.Build(motherBoard);
+            return motherBoard != null ? builder.Build(motherBoard) : null;
         }
     }
 }
