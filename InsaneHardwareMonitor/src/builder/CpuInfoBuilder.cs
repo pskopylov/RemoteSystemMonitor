@@ -3,6 +3,7 @@ using System;
 using InsaneHardwareMonitor.src.model;
 using InsaneHardwareMonitor.src.computer.sensor;
 using System.Management;
+using System.Linq;
 
 namespace InsaneHardwareMonitor.src.builder
 {
@@ -42,13 +43,8 @@ namespace InsaneHardwareMonitor.src.builder
 
         private int GetPhysicalCores()
         {
-            var coreCount = 0;
             var searcher = new ManagementObjectSearcher(SEARCH_QUERY);
-            foreach (var item in searcher.Get())
-            {
-                coreCount += int.Parse(item[NUMBER_OF_CORES].ToString());
-            }
-            return coreCount;
+            return searcher.Get().OfType<ManagementBaseObject>().Sum(item => int.Parse(item[NUMBER_OF_CORES].ToString()));
         }
 
         private int GetLogicalCores()

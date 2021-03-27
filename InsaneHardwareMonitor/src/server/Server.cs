@@ -1,6 +1,9 @@
 ﻿using Microsoft.Owin.Hosting;
-using InsaneHardwareMonitor.src.server.config;
 using InsaneHardwareMonitor.src.window;
+using InsaneHardwareMonitor.src.config;
+using InsaneHardwareMonitor.src.firewall;
+using System;
+using System.Diagnostics;
 
 namespace InsaneHardwareMonitor.src.server
 {
@@ -9,7 +12,9 @@ namespace InsaneHardwareMonitor.src.server
 
         public static void Start()
         {
-            using (WebApp.Start<Startup>(url : UrlConfiguration.GetUrl()))
+            Config config = ConfigLoader.LoadConfig();
+            FirewallRule.Create(config);
+            using (WebApp.Start<Startup>(url : config.GetUrl()))
             {
                 WindowStarter.Start();
             }

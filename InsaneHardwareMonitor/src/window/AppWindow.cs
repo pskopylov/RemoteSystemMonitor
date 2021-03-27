@@ -1,10 +1,21 @@
-﻿using System;
+﻿using InsaneHardwareMonitor.src.config;
+using InsaneHardwareMonitor.src.server;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
+using ZXing;
+using ZXing.QrCode;
 
 namespace InsaneHardwareMonitor.src.window
 {
     public partial class InsaneHardwareMonitorWindow : Form
     {
+
+        private Color hoverColor = Color.FromArgb(209, 209, 209);
+
+        Point offset;
+        bool isTopPanelDragged = false; 
+
         public InsaneHardwareMonitorWindow()
         {
             InitializeComponent();
@@ -23,19 +34,19 @@ namespace InsaneHardwareMonitor.src.window
             if (WindowState == FormWindowState.Minimized)
             {
                 Hide();
-                notifyIcon.Visible = true;
-                notifyIcon.ShowBalloonTip(500);
+                NotifyIcon.Visible = true;
+                NotifyIcon.ShowBalloonTip(500);
             }
         }
 
-        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
             WindowState = FormWindowState.Normal;
-            notifyIcon.Visible = false;
+            NotifyIcon.Visible = false;
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseApplication();
         }
@@ -68,5 +79,89 @@ namespace InsaneHardwareMonitor.src.window
             return result == DialogResult.Yes;
         }
 
+        private void InsaneHardwareMonitorWindow_Load(object sender, EventArgs e)
+        {
+            string ip = IPAdressManager.GetLocalIPAddress();
+            string port = ConfigLoader.LoadConfig().Port;
+
+            var writer = new BarcodeWriter
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = new QrCodeEncodingOptions
+                {
+                    Width = 120,
+                    Height = 120,
+                    Margin = 0
+                }
+            };
+
+            Bitmap qrCode = writer.Write($"http://{ip}:{port}/");
+            QRCodeBox.Image = qrCode;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            CloseApplication();
+        }
+
+        private void TrayButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            NotifyIcon.Visible = true;
+            NotifyIcon.ShowBalloonTip(500);
+        }
+
+        private void TrayButton_MouseHover(object sender, EventArgs e)
+        {
+            TrayButton.BackColor = hoverColor;
+        }
+
+        private void TrayButton_MouseLeave(object sender, EventArgs e)
+        {
+            TrayButton.BackColor = Color.Transparent;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TrayButton.BackColor = hoverColor;
+        }
+
+        private void TopPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isTopPanelDragged = true;
+                Point pointStartPosition = this.PointToScreen(new Point(e.X, e.Y));
+                offset = new Point
+                {
+                    X = Location.X - pointStartPosition.X,
+                    Y = Location.Y - pointStartPosition.Y
+                };
+            }
+            else
+            {
+                isTopPanelDragged = false;
+            }
+        }
+
+        private void TopPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            isTopPanelDragged = false;
+        }
+
+        private void TopPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isTopPanelDragged)
+            {
+                Point newPoint = TopPanel.PointToScreen(new Point(e.X, e.Y));
+                newPoint.Offset(offset);
+                this.Location = newPoint;
+            }
+        }
+
+        private void TrayButton_MouseEnter(object sender, EventArgs e)
+        {
+            TrayButton.BackColor = hoverColor;
+        }
     }
 }

@@ -104,8 +104,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\builder\CpuInfoBuilder.cs" />
     <Compile Include="src\builder\DriveInfoBuilder.cs" />
     <Compile Include="src\builder\GpuInfoBuilder.cs" />
@@ -128,6 +139,7 @@
     <Compile Include="src\controller\MotherBoardController.cs" />
     <Compile Include="src\controller\RamController.cs" />
     <Compile Include="src\controller\SystemController.cs" />
+    <Compile Include="src\firewall\FirewallRule.cs" />
     <Compile Include="src\model\CpuInfo.cs" />
     <Compile Include="src\model\DriveDiskInfo.cs" />
     <Compile Include="src\model\FanInfo.cs" />
@@ -140,7 +152,7 @@
     <Compile Include="src\server\config\FormatterConfiguration.cs" />
     <Compile Include="src\server\config\RouteConfiguration.cs" />
     <Compile Include="src\server\config\SwaggerConfiguration.cs" />
-    <Compile Include="src\server\config\UrlConfiguration.cs" />
+    <Compile Include="src\server\IPAdressManager.cs" />
     <Compile Include="src\server\Server.cs" />
     <Compile Include="src\server\Startup.cs" />
     <Compile Include="src\service\CpuInfoService.cs" />
@@ -157,6 +169,9 @@
     <Compile Include="src\window\AppWindow.Designer.cs">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\window\button\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\window\WindowStarter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,12 +186,29 @@
     <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\window\AppWindow.resx">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\cpu.png" />
+    <None Include="assets\bg.png" />
     <Content Include="large_chip.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
