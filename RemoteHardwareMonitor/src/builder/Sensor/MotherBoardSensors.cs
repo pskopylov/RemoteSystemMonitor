@@ -1,10 +1,10 @@
 ﻿using OpenHardwareMonitor.Hardware;
 using System.Collections.Generic;
 using System.Linq;
-using InsaneHardwareMonitor.src.model;
-using InsaneHardwareMonitor.src.util;
+using RemoteHardwareMonitor.Src.Model;
+using RemoteHardwareMonitor.Src.Util;
 
-namespace InsaneHardwareMonitor.src.computer.sensor
+namespace RemoteHardwareMonitor.Src.Builder.Sensor
 {
     class MotherBoardSensors : HardwareSensors
     {

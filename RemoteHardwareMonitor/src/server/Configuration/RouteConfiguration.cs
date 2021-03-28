@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace InsaneHardwareMonitor.src.server.config
+namespace RemoteHardwareMonitor.Src.Server.Configuration
 {
     class RouteConfiguration
     {

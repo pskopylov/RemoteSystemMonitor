@@ -1,7 +1,6 @@
-﻿
-using OpenHardwareMonitor.Hardware;
+﻿using OpenHardwareMonitor.Hardware;
 
-namespace InsaneHardwareMonitor.src.computer.sensor
+namespace RemoteHardwareMonitor.Src.Builder.Sensor
 {
     class GpuSensors : HardwareSensors
     {

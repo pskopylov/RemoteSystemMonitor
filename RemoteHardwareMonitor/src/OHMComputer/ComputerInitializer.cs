@@ -1,8 +1,6 @@
-﻿
+﻿using OpenHardwareMonitor.Hardware;
 
-using OpenHardwareMonitor.Hardware;
-
-namespace InsaneHardwareMonitor.src.computer
+namespace RemoteHardwareMonitor.Src.OHMComputer
 {
     class ComputerInitializer
     {

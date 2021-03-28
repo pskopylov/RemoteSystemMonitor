@@ -1,12 +1,12 @@
-﻿using InsaneHardwareMonitor.src.config;
-using InsaneHardwareMonitor.src.server;
+﻿using RemoteHardwareMonitor.Src.AppConfig;
+using RemoteHardwareMonitor.Src.Server;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using ZXing;
 using ZXing.QrCode;
 
-namespace InsaneHardwareMonitor.src.window
+namespace RemoteHardwareMonitor.Src.window
 {
     public partial class RemoteHardwareMonitorWindow : Form
     {
@@ -21,7 +21,7 @@ namespace InsaneHardwareMonitor.src.window
             InitializeComponent();
         }
 
-        private void InsaneHardwareMonitorWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void RemoteHardwareMonitorWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -29,7 +29,7 @@ namespace InsaneHardwareMonitor.src.window
             } 
         }
 
-        private void InsaneHardwareMonitorWindow_Resize(object sender, EventArgs e)
+        private void RemoteHardwareMonitorWindow_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
             {
@@ -79,7 +79,7 @@ namespace InsaneHardwareMonitor.src.window
             return result == DialogResult.Yes;
         }
 
-        private void InsaneHardwareMonitorWindow_Load(object sender, EventArgs e)
+        private void RemoteHardwareMonitorWindow_Load(object sender, EventArgs e)
         {
             string ip = IPAdressManager.GetLocalIPAddress();
             string port = ConfigLoader.LoadConfig().Port;

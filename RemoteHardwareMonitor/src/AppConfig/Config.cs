@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace InsaneHardwareMonitor.src.config
+﻿namespace RemoteHardwareMonitor.Src.AppConfig
 {
     class Config
     {

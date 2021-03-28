@@ -1,6 +1,6 @@
 ﻿using OpenHardwareMonitor.Hardware;
 
-namespace InsaneHardwareMonitor.src.computer.sensor
+namespace RemoteHardwareMonitor.Src.Builder.Sensor
 {
     class RamSensors : HardwareSensors
     {

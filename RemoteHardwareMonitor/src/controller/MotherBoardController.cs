@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
-using InsaneHardwareMonitor.src.model;
-using InsaneHardwareMonitor.src.service;
+using RemoteHardwareMonitor.Src.Model;
+using RemoteHardwareMonitor.Src.Service;
 
-namespace InsaneHardwareMonitor.src.controller
+namespace RemoteHardwareMonitor.Src.Сontroller
 {
     public class MotherBoardController : ApiController
     {

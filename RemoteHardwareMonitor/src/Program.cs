@@ -1,6 +1,6 @@
-﻿using InsaneHardwareMonitor.src.server;
+﻿using RemoteHardwareMonitor.Src.Server;
 
-namespace InsaneHardwareMonitor
+namespace RemoteHardwareMonitor
 {
     class Program
     {

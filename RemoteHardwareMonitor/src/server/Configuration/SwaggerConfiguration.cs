@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Swashbuckle.Application;
 
-namespace InsaneHardwareMonitor.src.server.config
+namespace RemoteHardwareMonitor.Src.Server.Configuration
 {
     class SwaggerConfiguration
     {

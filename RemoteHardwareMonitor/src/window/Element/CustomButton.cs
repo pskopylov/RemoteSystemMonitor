@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace InsaneHardwareMonitor.src.window.button
+namespace RemoteHardwareMonitor.Src.window.button
 {
     class CustomButton : Button
     {

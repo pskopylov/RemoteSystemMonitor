@@ -1,4 +1,4 @@
-﻿namespace InsaneHardwareMonitor.src.model
+﻿namespace RemoteHardwareMonitor.Src.Model
 {
     public class RamInfo
     {

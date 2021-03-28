@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace InsaneHardwareMonitor.src.model
+namespace RemoteHardwareMonitor.Src.Model
 {
     public class SystemInfo
     {

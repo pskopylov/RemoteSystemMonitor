@@ -1,9 +1,8 @@
-﻿using OpenHardwareMonitor.Hardware;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using InsaneHardwareMonitor.src.model;
+using RemoteHardwareMonitor.Src.Model;
 
-namespace InsaneHardwareMonitor.src.builder
+namespace RemoteHardwareMonitor.Src.Builder
 {
     class SystemInfoBuilder
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
-using InsaneHardwareMonitor.src.server.config;
+using RemoteHardwareMonitor.Src.Server.Configuration;
 
-[assembly: OwinStartup(typeof(InsaneHardwareMonitor.src.server.Startup))]
+[assembly: OwinStartup(typeof(RemoteHardwareMonitor.Src.Server.Startup))]
 
-namespace InsaneHardwareMonitor.src.server
+namespace RemoteHardwareMonitor.Src.Server
 {
     public class Startup
     {

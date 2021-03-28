@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InsaneHardwareMonitor.src.computer.sensor
+namespace RemoteHardwareMonitor.Src.Builder.Sensor
 {
     class CpuSensors : HardwareSensors
     {

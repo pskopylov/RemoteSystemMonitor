@@ -1,8 +1,8 @@
 ﻿using OpenHardwareMonitor.Hardware;
-using InsaneHardwareMonitor.src.computer.sensor;
-using InsaneHardwareMonitor.src.model;
+using RemoteHardwareMonitor.Src.Model;
+using RemoteHardwareMonitor.Src.Builder.Sensor;
 
-namespace InsaneHardwareMonitor.src.builder
+namespace RemoteHardwareMonitor.Src.Builder
 {
     class GpuInfoBuilder
     {

@@ -1,17 +1,15 @@
-﻿using InsaneHardwareMonitor.src.config;
-using NetFwTypeLib;
+﻿using NetFwTypeLib;
 using System;
 using System.Linq;
-using System.Reflection;
 
-namespace InsaneHardwareMonitor.src.firewall
+namespace RemoteHardwareMonitor.Src.Firewall
 {
     class FirewallRule
     {
 
         private const string RULE_NAME = "Insane Hardware Monitor";
 
-        public static void Create(Config config)
+        public static void Create(AppConfig.Config config)
         {
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             INetFwRule2 existedRule = FindRule(firewallPolicy);

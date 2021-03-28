@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InsaneHardwareMonitor.src.util
+namespace RemoteHardwareMonitor.Src.Util
 {
     class HardwareInfoUtils
     {

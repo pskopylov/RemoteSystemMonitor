@@ -1,7 +1,7 @@
 ﻿using OpenHardwareMonitor.Hardware;
-using InsaneHardwareMonitor.src.computer;
+using RemoteHardwareMonitor.Src.OHMComputer;
 
-namespace InsaneHardwareMonitor.src.service
+namespace RemoteHardwareMonitor.Src.Service
 {
     abstract class HardwareService
     {
@@ -10,7 +10,7 @@ namespace InsaneHardwareMonitor.src.service
 
         protected HardwareService()
         {
-            this.computer = ComputerInitializer.Initialize();
+            computer = ComputerInitializer.Initialize();
             InitBuilder();
         }
 

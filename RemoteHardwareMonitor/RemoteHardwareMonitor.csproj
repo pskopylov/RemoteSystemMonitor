@@ -39,7 +39,8 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>assets\cpu48.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -117,73 +118,73 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\builder\CpuInfoBuilder.cs" />
-    <Compile Include="src\builder\DriveInfoBuilder.cs" />
-    <Compile Include="src\builder\GpuInfoBuilder.cs" />
-    <Compile Include="src\builder\MotherBoardBuilder.cs" />
-    <Compile Include="src\builder\RamInfoBuilder.cs" />
-    <Compile Include="src\builder\SystemInfoBuilder.cs" />
-    <Compile Include="src\computer\sensor\CpuSensors.cs" />
-    <Compile Include="src\computer\sensor\DriveSensors.cs" />
-    <Compile Include="src\computer\sensor\GpuSensors.cs" />
-    <Compile Include="src\computer\sensor\MotherBoardSensors.cs" />
-    <Compile Include="src\computer\sensor\HardwareSensors.cs" />
-    <Compile Include="src\computer\sensor\RamSensors.cs" />
-    <Compile Include="src\computer\Visitor.cs" />
-    <Compile Include="src\config\Config.cs" />
-    <Compile Include="src\config\ConfigLoader.cs" />
-    <Compile Include="src\controller\CpuController.cs" />
-    <Compile Include="src\computer\ComputerInitializer.cs" />
-    <Compile Include="src\controller\DriveController.cs" />
-    <Compile Include="src\controller\GpuController.cs" />
-    <Compile Include="src\controller\MotherBoardController.cs" />
-    <Compile Include="src\controller\RamController.cs" />
-    <Compile Include="src\controller\SystemController.cs" />
-    <Compile Include="src\firewall\FirewallRule.cs" />
-    <Compile Include="src\model\CpuInfo.cs" />
-    <Compile Include="src\model\DriveDiskInfo.cs" />
-    <Compile Include="src\model\FanInfo.cs" />
-    <Compile Include="src\model\GpuInfo.cs" />
-    <Compile Include="src\model\MotherBoardInfo.cs" />
-    <Compile Include="src\model\RamInfo.cs" />
-    <Compile Include="src\model\SystemInfo.cs" />
-    <Compile Include="src\Program.cs" />
+    <Compile Include="Src\Builder\CpuInfoBuilder.cs" />
+    <Compile Include="Src\Builder\DriveInfoBuilder.cs" />
+    <Compile Include="Src\Builder\GpuInfoBuilder.cs" />
+    <Compile Include="Src\Builder\MotherBoardBuilder.cs" />
+    <Compile Include="Src\Builder\RamInfoBuilder.cs" />
+    <Compile Include="Src\Builder\SystemInfoBuilder.cs" />
+    <Compile Include="Src\Builder\Sensor\CpuSensors.cs" />
+    <Compile Include="Src\Builder\Sensor\DriveSensors.cs" />
+    <Compile Include="Src\Builder\Sensor\GpuSensors.cs" />
+    <Compile Include="Src\Builder\Sensor\MotherBoardSensors.cs" />
+    <Compile Include="Src\Builder\Sensor\HardwareSensors.cs" />
+    <Compile Include="Src\Builder\Sensor\RamSensors.cs" />
+    <Compile Include="Src\OHMComputer\Visitor.cs" />
+    <Compile Include="Src\AppConfig\Config.cs" />
+    <Compile Include="Src\AppConfig\ConfigLoader.cs" />
+    <Compile Include="Src\Controller\CpuController.cs" />
+    <Compile Include="Src\OHMComputer\ComputerInitializer.cs" />
+    <Compile Include="Src\Controller\DriveController.cs" />
+    <Compile Include="Src\Controller\GpuController.cs" />
+    <Compile Include="Src\Controller\MotherBoardController.cs" />
+    <Compile Include="Src\Controller\RamController.cs" />
+    <Compile Include="Src\Controller\SystemController.cs" />
+    <Compile Include="Src\Firewall\FirewallRule.cs" />
+    <Compile Include="Src\Model\CpuInfo.cs" />
+    <Compile Include="Src\Model\DriveDiskInfo.cs" />
+    <Compile Include="Src\Model\FanInfo.cs" />
+    <Compile Include="Src\Model\GpuInfo.cs" />
+    <Compile Include="Src\Model\MotherBoardInfo.cs" />
+    <Compile Include="Src\Model\RamInfo.cs" />
+    <Compile Include="Src\Model\SystemInfo.cs" />
+    <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\server\config\FormatterConfiguration.cs" />
-    <Compile Include="src\server\config\RouteConfiguration.cs" />
-    <Compile Include="src\server\config\SwaggerConfiguration.cs" />
-    <Compile Include="src\server\IPAdressManager.cs" />
-    <Compile Include="src\server\Server.cs" />
-    <Compile Include="src\server\Startup.cs" />
-    <Compile Include="src\service\CpuInfoService.cs" />
-    <Compile Include="src\service\DriveInfoService.cs" />
-    <Compile Include="src\service\GpuInfoService.cs" />
-    <Compile Include="src\service\HardwareService.cs" />
-    <Compile Include="src\service\MotherBoardService.cs" />
-    <Compile Include="src\service\RamInfoService.cs" />
-    <Compile Include="src\service\SystemInfoService.cs" />
-    <Compile Include="src\util\HardwareInfoUtils.cs" />
-    <Compile Include="src\window\AppWindow.cs">
+    <Compile Include="Src\Server\Configuration\FormatterConfiguration.cs" />
+    <Compile Include="Src\Server\Configuration\RouteConfiguration.cs" />
+    <Compile Include="Src\Server\Configuration\SwaggerConfiguration.cs" />
+    <Compile Include="Src\Server\IPAdressManager.cs" />
+    <Compile Include="Src\Server\Server.cs" />
+    <Compile Include="Src\Server\Startup.cs" />
+    <Compile Include="Src\Service\CpuInfoService.cs" />
+    <Compile Include="Src\Service\DriveInfoService.cs" />
+    <Compile Include="Src\Service\GpuInfoService.cs" />
+    <Compile Include="Src\Service\HardwareService.cs" />
+    <Compile Include="Src\Service\MotherBoardService.cs" />
+    <Compile Include="Src\Service\RamInfoService.cs" />
+    <Compile Include="Src\Service\SystemInfoService.cs" />
+    <Compile Include="Src\Util\HardwareInfoUtils.cs" />
+    <Compile Include="Src\Window\AppWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\window\AppWindow.Designer.cs">
+    <Compile Include="Src\Window\AppWindow.Designer.cs">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\window\button\CustomButton.cs">
+    <Compile Include="Src\Window\Element\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\window\WindowStarter.cs" />
+    <Compile Include="Src\Window\WindowStarter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="config\config.json">
+    <None Include="Config\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib\" />
+    <Folder Include="Lib\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -191,16 +192,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\window\AppWindow.resx">
+    <EmbeddedResource Include="Src\Window\AppWindow.resx">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Без имени-13.png" />
-    <None Include="Resources\Без имени-12.png" />
-    <None Include="Resources\Без имени-11.png" />
-    <None Include="Resources\Без имени-1.png" />
-    <Content Include="assets\cpu48.ico" />
+    <Content Include="Resources\cpu128.ico" />
+    <Content Include="Resources\cpu32.ico" />
+    <Content Include="Resources\cpu48.ico" />
+    <Content Include="Resources\cpu64.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">

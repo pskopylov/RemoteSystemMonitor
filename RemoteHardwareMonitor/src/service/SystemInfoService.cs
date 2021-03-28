@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using InsaneHardwareMonitor.src.builder;
-using InsaneHardwareMonitor.src.model;
+﻿using System.Collections.Generic;
+using RemoteHardwareMonitor.Src.Builder;
+using RemoteHardwareMonitor.Src.Model;
 
-namespace InsaneHardwareMonitor.src.service
+namespace RemoteHardwareMonitor.Src.Service
 {
     class SystemInfoService : HardwareService
     {
@@ -12,7 +10,7 @@ namespace InsaneHardwareMonitor.src.service
         private readonly CpuInfoService cpuInfoService;
         private readonly GpuInfoService gpuInfoService;
         private readonly RamInfoService ramInfoService;
-        private DriveInfoService driveInfoService;
+        private readonly DriveInfoService driveInfoService;
 
         private SystemInfoBuilder builder;
 

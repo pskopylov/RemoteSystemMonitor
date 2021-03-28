@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Management;
-using InsaneHardwareMonitor.src.model;
+using RemoteHardwareMonitor.Src.Model;
 
-namespace InsaneHardwareMonitor.src.builder
+namespace RemoteHardwareMonitor.Src.Builder
 {
     class DriveInfoBuilder
     {

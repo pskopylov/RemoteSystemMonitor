@@ -1,11 +1,10 @@
 ﻿using OpenHardwareMonitor.Hardware;
 using System.Collections.Generic;
-using InsaneHardwareMonitor.src.builder;
-using InsaneHardwareMonitor.src.computer;
-using InsaneHardwareMonitor.src.model;
-using InsaneHardwareMonitor.src.util;
+using RemoteHardwareMonitor.Src.Builder;
+using RemoteHardwareMonitor.Src.Model;
+using RemoteHardwareMonitor.Src.Util;
 
-namespace InsaneHardwareMonitor.src.service
+namespace RemoteHardwareMonitor.Src.Service
 {
     class DriveInfoService : HardwareService
     {

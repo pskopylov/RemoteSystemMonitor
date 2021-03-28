@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace InsaneHardwareMonitor.src.window
+namespace RemoteHardwareMonitor.Src.window
 {
     class WindowStarter
     {

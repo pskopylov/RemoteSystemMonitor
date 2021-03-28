@@ -1,18 +1,16 @@
 ﻿using Microsoft.Owin.Hosting;
-using InsaneHardwareMonitor.src.window;
-using InsaneHardwareMonitor.src.config;
-using InsaneHardwareMonitor.src.firewall;
-using System;
-using System.Diagnostics;
+using RemoteHardwareMonitor.Src.window;
+using RemoteHardwareMonitor.Src.AppConfig;
+using RemoteHardwareMonitor.Src.Firewall;
 
-namespace InsaneHardwareMonitor.src.server
+namespace RemoteHardwareMonitor.Src.Server
 {
     class Server
     {
 
         public static void Start()
         {
-            Config config = ConfigLoader.LoadConfig();
+            var config = ConfigLoader.LoadConfig();
             FirewallRule.Create(config);
             using (WebApp.Start<Startup>(url : config.GetUrl()))
             {

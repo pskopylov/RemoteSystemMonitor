@@ -1,11 +1,11 @@
 ﻿using OpenHardwareMonitor.Hardware;
 using System;
-using InsaneHardwareMonitor.src.model;
-using InsaneHardwareMonitor.src.computer.sensor;
+using RemoteHardwareMonitor.Src.Model;
 using System.Management;
 using System.Linq;
+using RemoteHardwareMonitor.Src.Builder.Sensor;
 
-namespace InsaneHardwareMonitor.src.builder
+namespace RemoteHardwareMonitor.Src.Builder
 {
     class CpuInfoBuilder
     {
