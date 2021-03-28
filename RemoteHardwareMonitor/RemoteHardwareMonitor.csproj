@@ -39,8 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>cpu48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -197,10 +196,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\cpu128.ico" />
-    <Content Include="Resources\cpu32.ico" />
-    <Content Include="Resources\cpu48.ico" />
-    <Content Include="Resources\cpu64.ico" />
+    <Content Include="cpu48.ico" />
+    <Content Include="Resources\Icons\cpu128.ico" />
+    <Content Include="Resources\Icons\cpu32.ico" />
+    <Content Include="Resources\Icons\cpu48.ico" />
+    <Content Include="Resources\Icons\cpu64.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">
