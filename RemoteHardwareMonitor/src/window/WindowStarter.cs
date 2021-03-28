@@ -9,7 +9,7 @@ namespace InsaneHardwareMonitor.src.window
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InsaneHardwareMonitorWindow());
+            Application.Run(new RemoteHardwareMonitorWindow());
         }
 
     }

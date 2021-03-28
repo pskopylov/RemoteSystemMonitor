@@ -1,7 +1,7 @@
 ﻿
 namespace InsaneHardwareMonitor.src.window
 {
-    partial class InsaneHardwareMonitorWindow
+    partial class RemoteHardwareMonitorWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace InsaneHardwareMonitor.src.window
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsaneHardwareMonitorWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteHardwareMonitorWindow));
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TrayMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +69,7 @@ namespace InsaneHardwareMonitor.src.window
             // QRCodeBox
             // 
             this.QRCodeBox.BackColor = System.Drawing.Color.White;
-            this.QRCodeBox.Location = new System.Drawing.Point(668, 251);
+            this.QRCodeBox.Location = new System.Drawing.Point(138, 277);
             this.QRCodeBox.Name = "QRCodeBox";
             this.QRCodeBox.Size = new System.Drawing.Size(124, 124);
             this.QRCodeBox.TabIndex = 1;
@@ -82,7 +82,7 @@ namespace InsaneHardwareMonitor.src.window
             this.TopPanel.Controls.Add(this.TrayButton);
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(900, 30);
+            this.TopPanel.Size = new System.Drawing.Size(400, 30);
             this.TopPanel.TabIndex = 4;
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
@@ -95,7 +95,7 @@ namespace InsaneHardwareMonitor.src.window
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.CloseButton.Location = new System.Drawing.Point(870, 0);
+            this.CloseButton.Location = new System.Drawing.Point(370, 0);
             this.CloseButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(30, 30);
@@ -113,7 +113,7 @@ namespace InsaneHardwareMonitor.src.window
             this.TrayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TrayButton.Font = new System.Drawing.Font("Roboto Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TrayButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.TrayButton.Location = new System.Drawing.Point(840, 0);
+            this.TrayButton.Location = new System.Drawing.Point(340, 0);
             this.TrayButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.TrayButton.Name = "TrayButton";
             this.TrayButton.Size = new System.Drawing.Size(30, 30);
@@ -124,21 +124,21 @@ namespace InsaneHardwareMonitor.src.window
             this.TrayButton.UseVisualStyleBackColor = true;
             this.TrayButton.Click += new System.EventHandler(this.TrayButton_Click);
             // 
-            // InsaneHardwareMonitorWindow
+            // RemoteHardwareMonitorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::InsaneHardwareMonitor.Properties.Resources.bg;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(900, 560);
+            this.ClientSize = new System.Drawing.Size(400, 590);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.QRCodeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "InsaneHardwareMonitorWindow";
+            this.Name = "RemoteHardwareMonitorWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insane Hardware Monitor";
+            this.Text = "Remote Hardware Monitor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InsaneHardwareMonitorWindow_FormClosing);
             this.Load += new System.EventHandler(this.InsaneHardwareMonitorWindow_Load);
             this.Resize += new System.EventHandler(this.InsaneHardwareMonitorWindow_Resize);

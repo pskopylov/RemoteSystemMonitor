@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5FBEAA02-8FA1-4DB0-ACD8-81A11DFC87E4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>InsaneHardwareMonitor</RootNamespace>
-    <AssemblyName>insaneHardwareMonitor</AssemblyName>
+    <RootNamespace>RemoteHardwareMonitor</RootNamespace>
+    <AssemblyName>remoteHardwareMonitor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -39,7 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>large_chip.ico</ApplicationIcon>
+    <ApplicationIcon>assets\cpu48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -189,15 +189,18 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="src\window\AppWindow.resx">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\cpu.png" />
-    <None Include="assets\bg.png" />
-    <Content Include="large_chip.ico" />
+    <None Include="Resources\Без имени-13.png" />
+    <None Include="Resources\Без имени-12.png" />
+    <None Include="Resources\Без имени-11.png" />
+    <None Include="Resources\Без имени-1.png" />
+    <Content Include="assets\cpu48.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">

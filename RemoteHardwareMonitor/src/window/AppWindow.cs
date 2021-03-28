@@ -8,7 +8,7 @@ using ZXing.QrCode;
 
 namespace InsaneHardwareMonitor.src.window
 {
-    public partial class InsaneHardwareMonitorWindow : Form
+    public partial class RemoteHardwareMonitorWindow : Form
     {
 
         private Color hoverColor = Color.FromArgb(209, 209, 209);
@@ -16,7 +16,7 @@ namespace InsaneHardwareMonitor.src.window
         Point offset;
         bool isTopPanelDragged = false; 
 
-        public InsaneHardwareMonitorWindow()
+        public RemoteHardwareMonitorWindow()
         {
             InitializeComponent();
         }
