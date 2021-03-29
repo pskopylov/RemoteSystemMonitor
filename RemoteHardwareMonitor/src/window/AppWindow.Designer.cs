@@ -69,7 +69,7 @@ namespace RemoteHardwareMonitor.Src.window
             // QRCodeBox
             // 
             this.QRCodeBox.BackColor = System.Drawing.Color.White;
-            this.QRCodeBox.Location = new System.Drawing.Point(138, 277);
+            this.QRCodeBox.Location = new System.Drawing.Point(138, 278);
             this.QRCodeBox.Name = "QRCodeBox";
             this.QRCodeBox.Size = new System.Drawing.Size(124, 124);
             this.QRCodeBox.TabIndex = 1;
