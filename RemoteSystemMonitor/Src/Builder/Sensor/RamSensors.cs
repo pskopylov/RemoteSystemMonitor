@@ -5,8 +5,8 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
     class RamSensors : HardwareSensors
     {
 
-        private const string USED_MEMORY = "Used Memory";
-        private const string AVAILABLE_MEMORY = "Available Memory";
+        private const string UserMemoryProperty = "Used Memory";
+        private const string AvailableMemoryProperty = "Available Memory";
 
         public float? Load { get; set; }
         public float? UsedMemory { get; set; }
@@ -41,10 +41,10 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
         {
             switch (name)
             {
-                case USED_MEMORY:
+                case UserMemoryProperty:
                     UsedMemory = value;
                     break;
-                case AVAILABLE_MEMORY:
+                case AvailableMemoryProperty:
                     AvailableMemory = value;
                     break;
             }

@@ -5,12 +5,12 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
     class GpuSensors : HardwareSensors
     {
 
-        private const string GPU_CORE = "GPU Core";
-        private const string GPU_MEMORY = "GPU Memory";
-        private const string GPU_FAN = "GPU Fan";
-        private const string GPU_MEMORY_TOTAL = "GPU Memory Total";
-        private const string GPU_MEMORY_USED = "GPU Memory Used";
-        private const string GPU_MEMORY_FREE = "GPU Memory Free";
+        private const string GpuCode = "GPU Core";
+        private const string GpuMemory = "GPU Memory";
+        private const string GpuFan = "GPU Fan";
+        private const string GpuMemoryTotal = "GPU Memory Total";
+        private const string GpuMemoryUsed = "GPU Memory Used";
+        private const string GpuMemoryFree = "GPU Memory Free";
 
         public float? CoreTemperature { get; set; }
         public float? CoreClock { get; set; }
@@ -59,10 +59,10 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
         {
             switch (name)
             {
-                case GPU_CORE:
+                case GpuCode:
                     CoreClock = value;
                     break;
-                case GPU_MEMORY:
+                case GpuMemory:
                     MemoryClock = value;
                     break;
             }
@@ -72,13 +72,13 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
         {
             switch (name)
             {
-                case GPU_CORE:
+                case GpuCode:
                     CoreLoad = value;
                     break;
-                case GPU_MEMORY:
+                case GpuMemory:
                     MemoryLoad = value;
                     break;
-                case GPU_FAN:
+                case GpuFan:
                     FanLoad = value;
                     break;
             }
@@ -93,13 +93,13 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
         {
             switch (name)
             {
-                case GPU_MEMORY_TOTAL:
+                case GpuMemoryTotal:
                     MemoryTotal = value;
                     break;
-                case GPU_MEMORY_USED:
+                case GpuMemoryUsed:
                     MemoryUsed = value;
                     break;
-                case GPU_MEMORY_FREE:
+                case GpuMemoryFree:
                     MemoryFree = value;
                     break;
             }

@@ -6,9 +6,9 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
 {
     class CpuSensors : HardwareSensors
     {
-        private const string BUS_SPEED = "Bus Speed";
-        private const string CPU_TOTAL_LOAD = "CPU Total";
-        private const string CPU_PACKAGE = "CPU Package";
+        private const string BusSpeed = "Bus Speed";
+        private const string CpuTotalLoad = "CPU Total";
+        private const string CpuPackage = "CPU Package";
 
         public float? Temperature { get; set; }
         public float? TotalLoad { get; set; }
@@ -50,7 +50,7 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
 
         private void SetClockValue(string name, float? value)
         {
-            if (!BUS_SPEED.Equals(name))
+            if (!BusSpeed.Equals(name))
             {
                 CoreClocks.AddLast(value);
             }
@@ -58,7 +58,7 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
 
         private void SetLoadValue(string name, float? value)
         {
-            if (CPU_TOTAL_LOAD.Equals(name))
+            if (CpuTotalLoad.Equals(name))
             {
                 TotalLoad = value;
             } else
@@ -69,7 +69,7 @@ namespace RemoteSystemMonitor.Src.Builder.Sensor
 
         private void SetTemperatureValue(string name, float? value)
         {
-            if (CPU_PACKAGE.Equals(name))
+            if (CpuPackage.Equals(name))
             {
                 Temperature = value;
             }

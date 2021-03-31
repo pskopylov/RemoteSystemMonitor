@@ -11,8 +11,8 @@ namespace RemoteSystemMonitor.Src.Window
 
         private readonly Color buttonHoverColor = Color.FromArgb(209, 209, 209);
         private readonly Color buttonBaseColor = Color.Transparent;
-        private readonly string NotifyMessage = "Are you sure you want to close Remote System Monitor?";
-        private readonly string NotifyCaption = "Remote System Monitor";
+        private const string NotifyMessage = "Are you sure you want to close Remote System Monitor?";
+        private const string NotifyCaption = "Remote System Monitor";
 
         Point offset;
         bool isTopPanelDragged = false;

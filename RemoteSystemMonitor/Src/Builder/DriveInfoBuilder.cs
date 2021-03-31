@@ -5,18 +5,17 @@ using System.Collections.Generic;
 using System.Management;
 using RemoteSystemMonitor.Src.Model;
 using RemoteSystemMonitor.Src.Builder.Sensor;
-using System.IO;
 
 namespace RemoteSystemMonitor.Src.Builder
 {
     class DriveInfoBuilder
     {
 
-        private const string MODEL_PROPERTY = "Model";
-        private const string DRIVE_NAME_PROPERTY = "Name";
-        private const string SIZE_PROPERTY = "Size";
-        private const string FREE_SPACE_PROPERTY = "FreeSpace";
-        private const string MAIN_QUERY = "select * from Win32_DiskDrive";
+        private const string ModelProperty = "Model";
+        private const string DriveNameProperty = "Name";
+        private const string SizeProperty = "Size";
+        private const string FreeSpaceProperty = "FreeSpace";
+        private const string MainQuery = "select * from Win32_DiskDrive";
 
         public IEnumerable<DriveDiskInfo> Build(IEnumerable<IHardware> disks)
         {
@@ -30,13 +29,13 @@ namespace RemoteSystemMonitor.Src.Builder
 
         private IEnumerable<DriveDiskInfo> BuildDisksInfo(IEnumerable<IHardware> disks)
         {
-            return BuildDisksInfoByQuery(disks, MAIN_QUERY);
+            return BuildDisksInfoByQuery(disks, MainQuery);
         }
 
         private DriveDiskInfo BuildDisksInfo(IEnumerable<IHardware> disks, string name)
         {
             // Always gets one drive
-            return BuildDisksInfoByQuery(disks, MAIN_QUERY + $" where Model = '{name}'")[0];
+            return BuildDisksInfoByQuery(disks, MainQuery + $" where Model = '{name}'")[0];
         }
 
         private IList<DriveDiskInfo> BuildDisksInfoByQuery(IEnumerable<IHardware> disksInfo, String query)
@@ -53,10 +52,10 @@ namespace RemoteSystemMonitor.Src.Builder
                     var logicalDriveQuery = new ManagementObjectSearcher(logicalDriveQueryText);
                     foreach (ManagementObject ld in logicalDriveQuery.Get())
                     {
-                        var diskModel = Convert.ToString(d.Properties[MODEL_PROPERTY].Value);
-                        var driveName = Convert.ToString(ld.Properties[DRIVE_NAME_PROPERTY].Value);
-                        var totalSpace = Convert.ToUInt64(ld.Properties[SIZE_PROPERTY].Value);
-                        var freeSpace = Convert.ToUInt64(ld.Properties[FREE_SPACE_PROPERTY].Value);
+                        var diskModel = Convert.ToString(d.Properties[ModelProperty].Value);
+                        var driveName = Convert.ToString(ld.Properties[DriveNameProperty].Value);
+                        var totalSpace = Convert.ToUInt64(ld.Properties[SizeProperty].Value);
+                        var freeSpace = Convert.ToUInt64(ld.Properties[FreeSpaceProperty].Value);
 
                         driveList.Add(CreateDiskInfo(diskModel, driveName, totalSpace, freeSpace));
                     }
