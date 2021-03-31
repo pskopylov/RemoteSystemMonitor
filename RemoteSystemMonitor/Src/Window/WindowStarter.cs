@@ -10,7 +10,7 @@ namespace RemoteSystemMonitor.Src.Window
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RemoteSystemMonitorWindow(startType));
+            Application.Run(new RemoteSystemMonitorForm(startType));
         }
 
     }

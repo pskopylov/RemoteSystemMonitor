@@ -1,7 +1,7 @@
 ﻿
 namespace RemoteSystemMonitor.Src.Window
 {
-    partial class RemoteSystemMonitorWindow
+    partial class RemoteSystemMonitorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace RemoteSystemMonitor.Src.Window
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteSystemMonitorWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteSystemMonitorForm));
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TrayMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,8 +131,7 @@ namespace RemoteSystemMonitor.Src.Window
             this.Name = "RemoteSystemMonitorWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remote System Monitor";
-            this.Load += new System.EventHandler(this.RemoteSystemMonitorWindow_Load);
-            this.Resize += new System.EventHandler(this.RemoteSystemMonitorWindow_Resize);
+            this.Load += new System.EventHandler(this.RemoteSystemMonitorForm_Load);
             this.TrayMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.QRCodeBox)).EndInit();
             this.TopPanel.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using OpenHardwareMonitor.Hardware;
+using OpenHardwareMonitor.Hardware.CPU;
 using RemoteSystemMonitor.Src.Builder;
 using RemoteSystemMonitor.Src.Model;
 using RemoteSystemMonitor.Src.Util;
@@ -24,13 +25,13 @@ namespace RemoteSystemMonitor.Src.Service
 
         public CpuInfo GetCpuInfo()
         {
-            var cpu = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.CPU);
+            var cpu = HardwareInfoUtils.GetCPU(computer.Hardware, HardwareType.CPU);
             return cpu != null ? builder.Build(cpu) : null;
         }
 
         public CpuInfo GetCpuSesnorsInfo()
         {
-            var cpu = HardwareInfoUtils.GetHardwareByType(computer.Hardware, HardwareType.CPU);
+            var cpu = HardwareInfoUtils.GetCPU(computer.Hardware, HardwareType.CPU);
             return cpu != null ? builder.BuildOnlySensors(cpu) : null;
         }
 

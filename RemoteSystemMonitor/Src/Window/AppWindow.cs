@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace RemoteSystemMonitor.Src.Window
 {
-    public partial class RemoteSystemMonitorWindow : Form
+    public partial class RemoteSystemMonitorForm : Form
     {
 
         private readonly Color buttonHoverColor = Color.FromArgb(209, 209, 209);
@@ -18,20 +18,10 @@ namespace RemoteSystemMonitor.Src.Window
         bool isTopPanelDragged = false;
         private readonly StartType startType;
 
-        public RemoteSystemMonitorWindow(StartType startType)
+        public RemoteSystemMonitorForm(StartType startType)
         {
             this.startType = startType;
             InitializeComponent();
-        }
-
-        private void RemoteSystemMonitorWindow_Resize(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Minimized)
-            {
-                Hide();
-                NotifyIcon.Visible = true;
-                NotifyIcon.ShowBalloonTip(500);
-            }
         }
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -60,7 +50,7 @@ namespace RemoteSystemMonitor.Src.Window
             return result == DialogResult.Yes;
         }
 
-        private void RemoteSystemMonitorWindow_Load(object sender, EventArgs e)
+        private void RemoteSystemMonitorForm_Load(object sender, EventArgs e)
         {
             Bitmap qrCode = QRCodeManager.Create();
             QRCodeBox.Image = qrCode;

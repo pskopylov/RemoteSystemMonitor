@@ -8,7 +8,7 @@ namespace RemoteSystemMonitor.Src.Firewall
     class FirewallRule
     {
 
-        private const string RULE_NAME = "Insane Hardware Monitor";
+        private const string RULE_NAME = "Remote System Monitor";
 
         public static void Create(Config config)
         {

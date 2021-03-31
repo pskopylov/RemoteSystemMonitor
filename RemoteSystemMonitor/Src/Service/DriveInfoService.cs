@@ -1,8 +1,8 @@
 ﻿using OpenHardwareMonitor.Hardware;
-using System.Collections.Generic;
 using RemoteSystemMonitor.Src.Builder;
 using RemoteSystemMonitor.Src.Model;
 using RemoteSystemMonitor.Src.Util;
+using System.Collections.Generic;
 
 namespace RemoteSystemMonitor.Src.Service
 {

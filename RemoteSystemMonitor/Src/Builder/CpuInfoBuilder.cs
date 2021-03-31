@@ -4,23 +4,22 @@ using RemoteSystemMonitor.Src.Model;
 using System.Management;
 using System.Linq;
 using RemoteSystemMonitor.Src.Builder.Sensor;
+using OpenHardwareMonitor.Hardware.CPU;
 
 namespace RemoteSystemMonitor.Src.Builder
 {
     class CpuInfoBuilder
     {
 
-        private const string SEARCH_QUERY = "Select * from Win32_Processor";
-        private const string NUMBER_OF_CORES = "NumberOfCores";
-
-        public CpuInfo Build(IHardware cpu)
+        public CpuInfo Build(GenericCPU cpu)
         {
             var sensors = new CpuSensors(cpu.Sensors);
             return new CpuInfo
             {
                 Name = cpu.Name,
-                PhysicalCores = GetPhysicalCores(),
+                PhysicalCores = cpu.GetCoreCount(),
                 LogicalCores = GetLogicalCores(),
+                Clock = cpu.TimeStampCounterFrequency,
                 TotalLoad = sensors.TotalLoad,
                 CoreLoads = sensors.GetCoreLoads(),
                 CoreClocks = sensors.GetCoreClocks(),
@@ -28,23 +27,18 @@ namespace RemoteSystemMonitor.Src.Builder
             };
         }
 
-        public CpuInfo BuildOnlySensors(IHardware cpu)
+        public CpuInfo BuildOnlySensors(GenericCPU cpu)
         {
             var sensors = new CpuSensors(cpu.Sensors);
             return new CpuInfo
             {
                 Name = cpu.Name,
+                Clock = cpu.TimeStampCounterFrequency,
                 TotalLoad = sensors.TotalLoad,
                 CoreLoads = sensors.GetCoreLoads(),
                 CoreClocks = sensors.GetCoreClocks(),
                 Temperature = sensors.Temperature
             };
-        }
-
-        private int GetPhysicalCores()
-        {
-            var searcher = new ManagementObjectSearcher(SEARCH_QUERY);
-            return searcher.Get().OfType<ManagementBaseObject>().Sum(item => int.Parse(item[NUMBER_OF_CORES].ToString()));
         }
 
         private int GetLogicalCores()

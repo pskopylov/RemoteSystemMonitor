@@ -1,8 +1,11 @@
 ﻿using OpenHardwareMonitor.Hardware;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Management;
 using RemoteSystemMonitor.Src.Model;
+using RemoteSystemMonitor.Src.Builder.Sensor;
+using System.IO;
 
 namespace RemoteSystemMonitor.Src.Builder
 {
@@ -15,28 +18,28 @@ namespace RemoteSystemMonitor.Src.Builder
         private const string FREE_SPACE_PROPERTY = "FreeSpace";
         private const string MAIN_QUERY = "select * from Win32_DiskDrive";
 
-        public IEnumerable<DriveDiskInfo> Build(IList<IHardware> disks)
+        public IEnumerable<DriveDiskInfo> Build(IEnumerable<IHardware> disks)
         {
-            return BuildDisksInfo();
+            return BuildDisksInfo(disks);
         }
 
-        public DriveDiskInfo Build(IList<IHardware> disks, string name)
+        public DriveDiskInfo Build(IEnumerable<IHardware> disks, string name)
         {
-            return BuildDisksInfo(name);
+            return BuildDisksInfo(disks, name);
         }
 
-        private IEnumerable<DriveDiskInfo> BuildDisksInfo()
+        private IEnumerable<DriveDiskInfo> BuildDisksInfo(IEnumerable<IHardware> disks)
         {
-            return BuildDisksInfoByQuery(MAIN_QUERY);
+            return BuildDisksInfoByQuery(disks, MAIN_QUERY);
         }
 
-        private DriveDiskInfo BuildDisksInfo(string name)
+        private DriveDiskInfo BuildDisksInfo(IEnumerable<IHardware> disks, string name)
         {
             // Always gets one drive
-            return BuildDisksInfoByQuery(MAIN_QUERY + $" where Model = '{name}'")[0];
+            return BuildDisksInfoByQuery(disks, MAIN_QUERY + $" where Model = '{name}'")[0];
         }
 
-        private IList<DriveDiskInfo> BuildDisksInfoByQuery(String query)
+        private IList<DriveDiskInfo> BuildDisksInfoByQuery(IEnumerable<IHardware> disksInfo, String query)
         {
             var driveList = new List<DriveDiskInfo>();
             var driveQuery = new ManagementObjectSearcher(query);
@@ -59,6 +62,7 @@ namespace RemoteSystemMonitor.Src.Builder
                     }
                 }
             }
+            UpdateTemperatureInfo(disksInfo, driveList);
             return driveList;
         }
 
@@ -72,6 +76,20 @@ namespace RemoteSystemMonitor.Src.Builder
                 FreeSpace = freeSpace
             };
         }
+
+        private void UpdateTemperatureInfo(IEnumerable<IHardware> diskInfos, IList<DriveDiskInfo> driveList)
+        {
+            foreach (var drive in driveList)
+            {
+                IHardware hardwareDisk = diskInfos.Where(disk => disk.Name.Equals(drive.Name)).FirstOrDefault();
+                if (hardwareDisk != null)
+                {
+                    var sensors = new DriveSensors(hardwareDisk.Sensors);
+                    drive.Temperature = sensors.Temperature;
+                }
+            }
+        }
+
 
     }
 }
