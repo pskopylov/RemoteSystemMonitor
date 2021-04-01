@@ -32,14 +32,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Icons\32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,6 +72,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
@@ -173,8 +176,8 @@
     <Compile Include="Src\Window\AppWindow.Designer.cs">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Window\QRCode\QRCodeData.cs" />
-    <Compile Include="Src\Window\QRCode\QRCodeManager.cs" />
+    <Compile Include="Src\QRCode\QRCodeData.cs" />
+    <Compile Include="Src\QRCode\QRCodeManager.cs" />
     <Compile Include="Src\Window\WindowStarter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,8 +192,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Window\AppWindow.resx">
       <DependentUpon>AppWindow.cs</DependentUpon>
@@ -198,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\OpenHardwareMonitorLib.dll" />
+    <None Include="Resources\Uncheck1.png" />
+    <None Include="Resources\Uncheck.png" />
+    <None Include="Resources\Check.png" />
     <Content Include="Resources\Icons\32.ico" />
     <Content Include="Resources\Icons\48.ico" />
   </ItemGroup>

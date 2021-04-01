@@ -1,5 +1,6 @@
-﻿using RemoteSystemMonitor.Src.Start;
-using RemoteSystemMonitor.Src.Window.QRCode;
+﻿using RemoteSystemMonitor.Src.AppConfig;
+using RemoteSystemMonitor.Src.QRCode;
+using RemoteSystemMonitor.Src.Start;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,12 +15,15 @@ namespace RemoteSystemMonitor.Src.Window
         private const string NotifyMessage = "Are you sure you want to close Remote System Monitor?";
         private const string NotifyCaption = "Remote System Monitor";
 
-        Point offset;
-        bool isTopPanelDragged = false;
-        private readonly StartType startType;
+        private Point offset;
+        private bool isTopPanelDragged = false;
 
-        public RemoteSystemMonitorForm(StartType startType)
+        private readonly StartType startType;
+        private readonly Config config;
+
+        public RemoteSystemMonitorForm(Config config, StartType startType)
         {
+            this.config = config;
             this.startType = startType;
             InitializeComponent();
         }
@@ -52,9 +56,9 @@ namespace RemoteSystemMonitor.Src.Window
 
         private void RemoteSystemMonitorForm_Load(object sender, EventArgs e)
         {
-            Bitmap qrCode = QRCodeManager.Create();
+            Bitmap qrCode = QRCodeManager.Create(config);
             QRCodeBox.Image = qrCode;
-            if (startType == StartType.Auto)
+            if (startType == StartType.Silent)
             {
                 HideOnStart();
             }
@@ -129,7 +133,7 @@ namespace RemoteSystemMonitor.Src.Window
             {
                 Point newPoint = TopPanel.PointToScreen(new Point(e.X, e.Y));
                 newPoint.Offset(offset);
-                this.Location = newPoint;
+                Location = newPoint;
             }
         }
     }

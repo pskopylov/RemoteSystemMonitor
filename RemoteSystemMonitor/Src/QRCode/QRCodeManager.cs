@@ -1,36 +1,36 @@
 ﻿using Newtonsoft.Json.Linq;
 using RemoteSystemMonitor.Src.AppConfig;
 using RemoteSystemMonitor.Src.Server;
-using RemoteSystemMonitor.Src.Window.Data;
 using System.Drawing;
 using ZXing;
 using ZXing.QrCode;
 
-namespace RemoteSystemMonitor.Src.Window.QRCode
+namespace RemoteSystemMonitor.Src.QRCode
 {
     class QRCodeManager
     {
 
-        public static Bitmap Create()
+        public static Bitmap Create(Config config)
         {
             var writer = new BarcodeWriter
             {
                 Format = BarcodeFormat.QR_CODE,
                 Options = new QrCodeEncodingOptions
                 {
-                    Width = 125,
-                    Height = 125,
+                    Width = 166,
+                    Height = 166,
                     Margin = 0
                 }
             };
 
-            return writer.Write(CreateJsonObject().ToString());
+            return writer.Write(CreateJsonObject(config).ToString());
         }
 
-        private static JToken CreateJsonObject()
+        private static JToken CreateJsonObject(Config config)
         {
             string ip = IPAdressManager.GetLocalIPAddress();
-            string port = ConfigManager.LoadConfig().Port;
+            string port = config.Port;
+
             QRCodeData data = new QRCodeData()
             {
                 Host = ip,

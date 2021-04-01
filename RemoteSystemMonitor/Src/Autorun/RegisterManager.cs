@@ -10,14 +10,9 @@ namespace RemoteSystemMonitor.Src.Autorun
         private const string APP_NAME = "RemoteSystemMonitor";
         public static void AddToStartup()
         {
-            Config config = ConfigManager.LoadConfig();
-            if (!config.Autorun)
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(REGISTRY_PATH, true);
-                key.SetValue(APP_NAME, Assembly.GetEntryAssembly().Location);
-                config.Autorun = true;
-                ConfigManager.SaveConfig(config);
-            }
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(REGISTRY_PATH, true);
+            key.SetValue(APP_NAME, Assembly.GetEntryAssembly().Location);
+            key.Close();
         }
     }
 }

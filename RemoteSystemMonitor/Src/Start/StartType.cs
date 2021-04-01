@@ -3,6 +3,6 @@
     public enum StartType
     {
         User,
-        Auto
+        Silent
     }
 }

@@ -9,10 +9,10 @@ namespace RemoteSystemMonitor.Src.Start
         {
             if (args.Length == 0)
             {
-                return StartType.Auto;
+                return StartType.User;
             } else
             {
-                return StartType.User.ToString().Equals(args[0]) ? StartType.User : StartType.Auto;
+                return StartType.Silent.Equals(args[0]) ? StartType.Silent : StartType.User;
             }
         } 
 

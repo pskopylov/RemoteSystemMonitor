@@ -1,4 +1,5 @@
-﻿using RemoteSystemMonitor.Src.Start;
+﻿using RemoteSystemMonitor.Src.AppConfig;
+using RemoteSystemMonitor.Src.Start;
 using System.Windows.Forms;
 
 namespace RemoteSystemMonitor.Src.Window
@@ -6,11 +7,11 @@ namespace RemoteSystemMonitor.Src.Window
     class WindowStarter
     {
 
-        public static void Start(StartType startType)
+        public static void Start(Config config, StartType startType)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RemoteSystemMonitorForm(startType));
+            Application.Run(new RemoteSystemMonitorForm(config, startType));
         }
 
     }

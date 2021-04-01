@@ -71,9 +71,9 @@ namespace RemoteSystemMonitor.Src.Window
             // QRCodeBox
             // 
             this.QRCodeBox.BackColor = System.Drawing.Color.White;
-            this.QRCodeBox.Location = new System.Drawing.Point(313, 235);
+            this.QRCodeBox.Location = new System.Drawing.Point(294, 107);
             this.QRCodeBox.Name = "QRCodeBox";
-            this.QRCodeBox.Size = new System.Drawing.Size(124, 124);
+            this.QRCodeBox.Size = new System.Drawing.Size(166, 166);
             this.QRCodeBox.TabIndex = 1;
             this.QRCodeBox.TabStop = false;
             // 
@@ -116,19 +116,19 @@ namespace RemoteSystemMonitor.Src.Window
             this.CloseButton.MouseEnter += new System.EventHandler(this.CloseButton_MouseEnter);
             this.CloseButton.MouseLeave += new System.EventHandler(this.CloseButton_MouseLeave);
             // 
-            // RemoteSystemMonitorWindow
+            // RemoteSystemMonitorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(500, 590);
+            this.ClientSize = new System.Drawing.Size(500, 350);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.QRCodeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "RemoteSystemMonitorWindow";
+            this.Name = "RemoteSystemMonitorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remote System Monitor";
             this.Load += new System.EventHandler(this.RemoteSystemMonitorForm_Load);

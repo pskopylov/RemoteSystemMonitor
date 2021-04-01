@@ -8,14 +8,12 @@ namespace RemoteSystemMonitor.Src.Server
 {
     class Server
     {
-
-        public static void Start(StartType startType)
+        public static void Start(Config config, StartType startType)
         {
-            var config = ConfigManager.LoadConfig();
             FirewallRule.Create(config);
             using (WebApp.Start<Startup>(url : config.GetUrl()))
             {
-                WindowStarter.Start(startType);
+                WindowStarter.Start(config, startType);
             }
         }
 

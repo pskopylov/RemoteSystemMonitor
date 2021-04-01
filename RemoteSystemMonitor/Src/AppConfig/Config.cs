@@ -1,14 +1,11 @@
 ﻿namespace RemoteSystemMonitor.Src.AppConfig
 {
-    class Config
+    public class Config
     {
-        public string Port { get; set; }
-        public bool Autorun { get => autorun; set => autorun = value; }
-        public bool RuleCreated { get => ruleCreated; set => ruleCreated = value; }
+        public string Port { get => port; set => port = value; }
 
-        private bool ruleCreated = false;
+        private string port = "57308";
 
-        private bool autorun = false;
 
         public string GetUrl()
         {

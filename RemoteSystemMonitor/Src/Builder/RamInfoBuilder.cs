@@ -3,7 +3,6 @@ using RemoteSystemMonitor.Src.Model;
 using RemoteSystemMonitor.Src.Builder.Sensor;
 using System.Linq;
 using System.Management;
-using System.Collections.Generic;
 
 namespace RemoteSystemMonitor.Src.Builder
 {

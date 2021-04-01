@@ -12,23 +12,17 @@ namespace RemoteSystemMonitor.Src.Firewall
 
         public static void Create(Config config)
         {
-            if (!config.RuleCreated)
+            INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+            INetFwRule2 existedRule = FindRule(firewallPolicy);
+            if (IfExistsWithPort(existedRule, config.Port))
             {
-                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
-                INetFwRule2 existedRule = FindRule(firewallPolicy);
-                if (IfExistsWithPort(existedRule, config.Port))
-                {
-                    firewallPolicy.Rules.Remove(RULE_NAME);
-                    AddRule(firewallPolicy, config.Port);
-                }
-                else if (IfNotExists(existedRule))
-                {
-                    AddRule(firewallPolicy, config.Port);
-                }
-                config.RuleCreated = true;
-                ConfigManager.SaveConfig(config);
+                firewallPolicy.Rules.Remove(RULE_NAME);
+                AddRule(firewallPolicy, config.Port);
             }
-
+            else if (IfNotExists(existedRule))
+            {
+                AddRule(firewallPolicy, config.Port);
+            }
         }
 
         private static INetFwRule2 FindRule(INetFwPolicy2 firewallPolicy)
